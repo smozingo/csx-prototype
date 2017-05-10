@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Challenge 4 · Codesmith CSX</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="generator" content="GitBook 3.2.2">
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+
+
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="next" href="solution.html" />
+    <link rel="prev" href="challenge3.html" />
+</head>
+
+<body>
+    <div class="book">
+        <div class="book-summary">
+            <div class="logo"><img src="gitbook/images/codesmith-csx-logo.jpg"></div>
+            <nav role="navigation">
+                <ul class="summary">
+                    <li class="header">Recursion</li>
+                    <li class="chapter " data-level="1.1" data-path="../">
+                        <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.2" data-path="welcomevideo.html">
+                        <a href="welcomevideo.html">
+            
+                    
+                    Welcome Video
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.3" data-path="onfunctioncalls.html">
+                        <a href="onfunctioncalls.html">
+            
+                    
+                    On Function Calls
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.4" data-path="thecallstack.html">
+                        <a href="thecallstack.html">
+            
+                    
+                    The Call Stack
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.5" data-path="basecases.html">
+                        <a href="basecases.html">
+            
+                    
+                    Base Cases
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.6" data-path="iteration.html">
+                        <a href="iteration.html">
+            
+                    
+                    Iteration
+            
+                </a>
+                    </li>
+                    <li class="header">Part II</li>
+                    <li class="chapter " data-level="2.1" data-path="playwithrecursion.html">
+                        <a href="playwithrecursion.html">
+            
+                    
+                    Play with Recursion
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="2.2" data-path="parametersasstorage.html">
+                        <a href="parametersasstorage.html">
+            
+                    
+                    Parameters As Storage
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="2.3" data-path="whatisitgoodfor.html">
+                        <a href="whatisitgoodfor.html">
+            
+                    
+                    What is it Good for?
+            
+                </a>
+                    </li>
+                    <li class="header">Part III</li>
+                    <li class="chapter " data-level="3.1" data-path="challenge1.html">
+                        <a href="challenge1.html">
+            
+                    
+                    Challenge 1
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="3.2" data-path="challenge2.html">
+                        <a href="challenge2.html">
+            
+                    
+                    Challenge 2
+            
+                </a>
+                    </li>
+                    <li class="chapter " data-level="3.3" data-path="challenge3.html">
+                        <a href="challenge3.html">
+            
+                    
+                    Challenge 3
+            
+                </a>
+                    </li>
+                    <li class="chapter active" data-level="3.4" data-path="challenge4.html">
+                        <a href="challenge4.html">
+            
+                    
+                    Challenge 4
+            
+                </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="chapter " data-level="4.1" data-path="solution.html">
+                        <a href="solution.html">
+            
+                    
+                    Solution Video
+            
+                </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="book-body">
+            <div class="body-inner">
+                <div class="book-header" role="navigation">
+                </div>
+                <div class="page-wrapper" tabindex="-1" role="main">
+                    <div class="page-inner">
+                        <div id="book-search-results">
+                            <div class="search-noresults">
+                                <section class="normal markdown-section">
+                                    <h3 id="challenge-4">Challenge 4</h3>
+                                    <p>Write a function called recurseFuncs that takes an array of functions and a number. Our
+                                        function recurseFuncs should call the input functions in order with that number,
+                                        where the result of each function becomes the next function&#x2019;s input. Use recursion
+                                        to return the final value after all functions have been used. For example:</p>
+                                    <pre><code>const funcs = [
+    (a) =&gt; 8 * a - 10,
+    (a) =&gt; (a - 3) * (a - 3) * (a - 3),
+    (a) =&gt; a + 4,
+    (a) =&gt; a % 5
+ ];
+
+recurseFuncs(2, funcs); // &#x2192; 1
+</code></pre>
+                                    <p>As we can see, the first function is called with an input of 2 and returns an output
+                                        of 6. Then 6 passes into the second function to return 27. Then 27 passes into the
+                                        third function to return 31. Then 31 passes into the last function to return 1. Since
+                                        we have used all functions, we return 1 from recurseFuncs.</p>
+                                    <pre><code class="lang-`">// Inputs: {Integer} - input
+//         {Array} - funcArray
+// Output: {Integer}
+
+function recurseFuncs(input, funcArray) {
+
+}
+</code></pre>
+                                </section>
+                            </div>
+                            <div class="search-results">
+                                <div class="has-results">
+
+
+                                </div>
+                                <div class="no-results">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="challenge3.html" class="navigation navigation-prev " aria-label="Previous page: Challenge 3">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a href="solution.html" class="navigation navigation-next " aria-label="Next page: Solution Video">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+        <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function () {
+                gitbook.page.hasChanged({
+                    "page": {
+                        "title": "Challenge 4",
+                        "level": "3.4",
+                        "depth": 1,
+                        "next": {
+                            "title": "Solution Video",
+                            "level": "4.1",
+                            "depth": 1,
+                            "path": "recursion/solution.md",
+                            "ref": "recursion/solution.md",
+                            "articles": []
+                        },
+                        "previous": {
+                            "title": "Challenge 3",
+                            "level": "3.3",
+                            "depth": 1,
+                            "path": "recursion/challenge3.md",
+                            "ref": "recursion/challenge3.md",
+                            "articles": []
+                        },
+                        "dir": "ltr"
+                    },
+                    "config": {
+                        "gitbook": "*",
+                        "theme": "default",
+                        "variables": {},
+                        "plugins": [],
+                        "pluginsConfig": {
+                            "highlight": {},
+                            "search": {},
+                            "lunr": {
+                                "maxIndexSize": 1000000,
+                                "ignoreSpecialCharacters": false
+                            },
+                            "sharing": {
+                                "facebook": true,
+                                "twitter": true,
+                                "google": false,
+                                "weibo": false,
+                                "instapaper": false,
+                                "vk": false,
+                                "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+                            },
+                            "fontsettings": {
+                                "theme": "white",
+                                "family": "sans",
+                                "size": 2
+                            },
+                            "theme-default": {
+                                "styles": {
+                                    "website": "styles/website.css",
+                                    "pdf": "styles/pdf.css",
+                                    "epub": "styles/epub.css",
+                                    "mobi": "styles/mobi.css",
+                                    "ebook": "styles/ebook.css",
+                                    "print": "styles/print.css"
+                                },
+                                "showLevel": false
+                            }
+                        },
+                        "structure": {
+                            "langs": "LANGS.md",
+                            "readme": "README.md",
+                            "glossary": "GLOSSARY.md",
+                            "summary": "SUMMARY.md"
+                        },
+                        "pdf": {
+                            "pageNumbers": true,
+                            "fontSize": 12,
+                            "fontFamily": "Arial",
+                            "paperSize": "a4",
+                            "chapterMark": "pagebreak",
+                            "pageBreaksBefore": "/",
+                            "margin": {
+                                "right": 62,
+                                "left": 62,
+                                "top": 56,
+                                "bottom": 56
+                            }
+                        },
+                        "styles": {
+                            "website": "styles/website.css",
+                            "pdf": "styles/pdf.css",
+                            "epub": "styles/epub.css",
+                            "mobi": "styles/mobi.css",
+                            "ebook": "styles/ebook.css",
+                            "print": "styles/print.css"
+                        }
+                    },
+                    "file": {
+                        "path": "recursion/challenge4.md",
+                        "mtime": "2017-05-10T07:14:29.000Z",
+                        "type": "markdown"
+                    },
+                    "gitbook": {
+                        "version": "3.2.2",
+                        "time": "2017-05-10T07:32:00.369Z"
+                    },
+                    "basePath": "..",
+                    "book": {
+                        "language": ""
+                    }
+                });
+            });
+        </script>
+    </div>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+</body>
+
+</html>
